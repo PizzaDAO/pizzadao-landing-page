@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PizzaDAO — Get Started</title>
+    <meta
+      name="description"
+      content="Get started with PizzaDAO: join the Discord, mint a Rare Pizza, and play PizzaDAO games."
+    />
+
+    <meta property="og:title" content="PizzaDAO — Get Started" />
+    <meta
+      property="og:description"
+      content="Join the Discord, mint a Rare Pizza, and play PizzaDAO games."
+    />
+    <meta property="og:type" content="website" />
+
+    <style>
+      :root {
+        --bg: #0b0b10;
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.68);
+        --stroke: rgba(255, 255, 255, 0.12);
+        --shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
+        --radius: 18px;
+        --good: #39d98a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(
+            1200px 800px at 20% 10%,
+            rgba(255, 59, 59, 0.25),
+            transparent 55%
+          ),
+          radial-gradient(
+            1000px 700px at 80% 20%,
+            rgba(255, 204, 0, 0.18),
+            transparent 50%
+          ),
+          radial-gradient(
+            900px 900px at 50% 90%,
+            rgba(57, 217, 138, 0.12),
+            transparent 55%
+          ),
+          var(--bg);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid rgba(255, 204, 0, 0.55);
+        outline-offset: 2px;
+        border-radius: 10px;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 36px 18px 60px;
+      }
+
+      header {
+        display: grid;
+        gap: 14px;
+        padding: 26px 22px;
+        border: 1px solid var(--stroke);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.03)
+        );
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        justify-items: center;
+      }
+
+      header:before,
+      header:after {
+        content: "";
+        position: absolute;
+        inset: -50%;
+        background: radial-gradient(
+            300px 200px at 20% 30%,
+            rgba(255, 255, 255, 0.1),
+            transparent 60%
+          ),
+          radial-gradient(
+            240px 170px at 80% 40%,
+            rgba(255, 255, 255, 0.08),
+            transparent 60%
+          ),
+          radial-gradient(
+            220px 220px at 50% 80%,
+            rgba(255, 255, 255, 0.05),
+            transparent 65%
+          );
+        transform: rotate(6deg);
+        pointer-events: none;
+      }
+      header:after {
+        transform: rotate(-4deg);
+        opacity: 0.65;
+      }
+
+      .logo {
+        width: min(520px, 90%);
+        height: auto;
+        margin: 4px 0 2px;
+        filter: drop-shadow(0 18px 60px rgba(0, 0, 0, 0.55));
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(26px, 3.4vw, 40px);
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+      }
+
+      .sub {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.5;
+        max-width: 72ch;
+      }
+
+      .top-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+        justify-content: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        transition: transform 120ms ease, background 120ms ease,
+          border-color 120ms ease;
+        cursor: pointer;
+        user-select: none;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.09);
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+      .btn.primary {
+        border-color: rgba(57, 217, 138, 0.4);
+        background: linear-gradient(
+          180deg,
+          rgba(57, 217, 138, 0.22),
+          rgba(57, 217, 138, 0.1)
+        );
+      }
+      .btn.primary:hover {
+        border-color: rgba(57, 217, 138, 0.65);
+      }
+
+      main {
+        margin-top: 18px;
+      }
+
+      .sectionTitle {
+        margin: 22px 4px 10px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+      @media (min-width: 700px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (min-width: 980px) {
+        .grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      .card {
+        border-radius: var(--radius);
+        border: 1px solid var(--stroke);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.03)
+        );
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        transition: transform 140ms ease, border-color 140ms ease,
+          background 140ms ease;
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 14px;
+        padding: 14px;
+        align-items: center;
+        min-height: 132px;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.22);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.09),
+          rgba(255, 255, 255, 0.04)
+        );
+      }
+
+      /* Square thumbnails */
+      .thumb {
+        width: 110px;
+        height: 110px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.25);
+        flex: 0 0 auto;
+      }
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(1.05) contrast(1.05);
+      }
+
+      .cardBody {
+        min-width: 0;
+      }
+
+      .titleRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .title {
+        margin: 0;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+      }
+
+      .meta {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      footer {
+        margin-top: 18px;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 0.95em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <!-- Put the attached logo file next to this HTML and keep this filename -->
+        <img class="logo" src="PizzaDAO Logo White.png" alt="PizzaDAO" />
+
+        <h1>Get Started</h1>
+        <p class="sub">
+          Join the community, mint a Rare Pizza, and jump into PizzaDAO games.
+        </p>
+
+        <div class="top-actions">
+          <a
+            class="btn primary"
+            href="https://discord.pizzadao.xyz"
+            target="_blank"
+            rel="noreferrer"
+            >💬 Join Discord</a
+          >
+          <a
+            class="btn"
+            href="https://rarepizzas.com/mint"
+            target="_blank"
+            rel="noreferrer"
+            >🍕 Mint a Rare Pizza</a
+          >
+          <a class="btn" href="https://x.com/pizza_dao" target="_blank" rel="noreferrer"
+            >🐦 Follow on X</a
+          >
+        </div>
+      </header>
+
+      <main>
+        <div class="sectionTitle">Start Here</div>
+        <div class="grid" id="grid"></div>
+
+        <footer>Want to add more? Edit the <code>CARDS</code> array in this file.</footer>
+      </main>
+    </div>
+
+    <script>
+      const DEFAULT_THUMBNAIL =
+        "https://pbs.twimg.com/profile_images/1960434112029745152/eiqMx2L2_400x400.jpg";
+
+      const CARDS = [
+        {
+          name: "Join the Discord",
+          url: "https://discord.pizzadao.xyz",
+          description: "Meet the crew, find events, and get plugged in.",
+          icon: "💬",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+        {
+          name: "Join PizzaDAO",
+          url: "https://discord.pizzadao.xyz",
+          description: "What's your favorite pizza topping + mafia movie?",
+          icon: "💬",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+        {
+          name: "Global Pizza Party Map",
+          url: "https://map.pizzadao.xyz",
+          description: "See all the cities we host the Global Pizza Party in.",
+          icon: "🍕",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+        {
+          name: "Pizza Chef",
+          url: "https://pizzachef.bolt.host",
+          description: "Fast arcade lane action. Cook, serve, and chase streaks.",
+          icon: "👨‍🍳",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+        {
+          name: "Molto Benny's Delivery Route",
+          url: "https://pizzadao.github.io/moltobennydelivery/",
+          description: "Plan the route. Deliver the pies. Speedrun the city.",
+          icon: "🛵",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+        {
+          name: "Bitcoin Pizza Blastoff",
+          url: "https://c-r-x-s-s.github.io/Bitcoin-Pizza-Blastoff/",
+          description: "Retro blastoff vibes — dodge, boost, and send the slice.",
+          icon: "🚀",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+        {
+          name: "Mint a Rare Pizza",
+          url: "https://rarepizzas.com/mint",
+          description: "Claim a slice of onchain pizza history.",
+          icon: "🍕",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+        {
+          name: "Submit a Proposal",
+          url: "https://propose.pizzadao.xyz",
+          description: "Need pizza for an event?",
+          icon: "🍕",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+        {
+          name: "Join a Crew Call",
+          url: "https://calendar.pizzadao.xyz",
+          description: "Come see what we're working on!",
+          icon: "🍕",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+        {
+          name: "Claim PizzaDAO ENS",
+          url: "https://pizzadao.namespace.ninja/",
+          description: "Claimable by Rare Pizzas NFT Holders.",
+          icon: "🚀",
+          thumbnail: DEFAULT_THUMBNAIL,
+        },
+      ];
+
+      const grid = document.getElementById("grid");
+
+      function cardHTML(c) {
+        const thumb = c.thumbnail || DEFAULT_THUMBNAIL;
+
+        return `
+          <a class="card" href="${c.url}" target="_blank" rel="noreferrer" aria-label="Open ${c.name}">
+            <div class="thumb" aria-hidden="true">
+              <img src="${thumb}" alt="${c.name} thumbnail" loading="lazy" />
+            </div>
+
+            <div class="cardBody">
+              <div class="titleRow">
+                <h2 class="title">${c.icon ? `${c.icon} ` : ""}${c.name}</h2>
+              </div>
+
+              <div class="meta">${c.description || ""}</div>
+            </div>
+          </a>
+        `;
+      }
+
+      grid.innerHTML = CARDS.map(cardHTML).join("");
+    </script>
+  </body>
+</html>
