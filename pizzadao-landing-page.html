@@ -338,76 +338,85 @@
       const DEFAULT_THUMBNAIL =
         "https://pbs.twimg.com/profile_images/1960434112029745152/eiqMx2L2_400x400.jpg";
 
+      // Updated image URLs (only used on specific cards below)
+      const THUMBS = {
+        MOLTO_BENNY_ROUTE: "https://i.imgur.com/IgA9cLe.jpeg",
+        PIZZA_CHEF: "https://i.imgur.com/KWvJgKJ.jpeg",
+        BITCOIN_BLASTOFF: "https://i.imgur.com/1VS8NvO.png",
+        SUBMIT_PROPOSAL: "https://i.imgur.com/dCBTJHx.png",
+        JOIN_PIZZADAO: "https://i.imgur.com/6iqZx8k.png",
+      };
+
       const CARDS = [
         {
           name: "Join the Discord",
           url: "https://discord.pizzadao.xyz",
           description: "Meet the crew, find events, and get plugged in.",
           icon: "💬",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: DEFAULT_THUMBNAIL, // keep placeholder
         },
         {
-          name: "Join PizzaDAO",
+          name: "Get a Pizza Mafia Name",
           url: "https://discord.pizzadao.xyz",
           description: "What's your favorite pizza topping + mafia movie?",
           icon: "💬",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: THUMBS.JOIN_PIZZADAO, // ✅ updated
         },
         {
           name: "Global Pizza Party Map",
           url: "https://map.pizzadao.xyz",
           description: "See all the cities we host the Global Pizza Party in.",
           icon: "🍕",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: DEFAULT_THUMBNAIL, // keep placeholder
         },
         {
-          name: "Pizza Chef",
+          name: "Play Pizza Chef",
           url: "https://pizzachef.bolt.host",
           description: "Fast arcade lane action. Cook, serve, and chase streaks.",
           icon: "👨‍🍳",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: THUMBS.PIZZA_CHEF, // ✅ updated
         },
         {
           name: "Molto Benny's Delivery Route",
           url: "https://pizzadao.github.io/moltobennydelivery/",
           description: "Plan the route. Deliver the pies. Speedrun the city.",
           icon: "🛵",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: THUMBS.MOLTO_BENNY_ROUTE, // ✅ updated
         },
         {
           name: "Bitcoin Pizza Blastoff",
           url: "https://c-r-x-s-s.github.io/Bitcoin-Pizza-Blastoff/",
           description: "Retro blastoff vibes — dodge, boost, and send the slice.",
           icon: "🚀",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: THUMBS.BITCOIN_BLASTOFF, // ✅ updated
         },
         {
           name: "Mint a Rare Pizza",
           url: "https://rarepizzas.com/mint",
           description: "Claim a slice of onchain pizza history.",
           icon: "🍕",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: DEFAULT_THUMBNAIL, // keep placeholder
         },
         {
           name: "Submit a Proposal",
           url: "https://propose.pizzadao.xyz",
           description: "Need pizza for an event?",
           icon: "🍕",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: THUMBS.SUBMIT_PROPOSAL, // ✅ updated
         },
         {
           name: "Join a Crew Call",
           url: "https://calendar.pizzadao.xyz",
           description: "Come see what we're working on!",
           icon: "🍕",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: DEFAULT_THUMBNAIL, // keep placeholder
         },
         {
           name: "Claim PizzaDAO ENS",
           url: "https://pizzadao.namespace.ninja/",
           description: "Claimable by Rare Pizzas NFT Holders.",
           icon: "🚀",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: DEFAULT_THUMBNAIL, // keep placeholder
         },
       ];
 
