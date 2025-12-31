@@ -25,6 +25,9 @@
         --shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
         --radius: 18px;
         --good: #39d98a;
+
+        /* ✅ NEW: hover accent */
+        --accent: #ff393a;
       }
 
       * {
@@ -40,6 +43,12 @@
           Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
         color: var(--text);
         background: var(--bg);
+
+        /* ✅ NEW: smoother overall type + scale */
+        font-size: 16px;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
       }
 
       a {
@@ -114,16 +123,16 @@
 
       h1 {
         margin: 0;
-        font-size: clamp(26px, 3.4vw, 40px);
+        font-size: clamp(28px, 3.6vw, 42px);
         letter-spacing: -0.03em;
-        line-height: 1.1;
+        line-height: 1.08;
       }
 
       .sub {
         margin: 0;
         color: var(--muted);
-        font-size: 16px;
-        line-height: 1.5;
+        font-size: 17px;
+        line-height: 1.55;
         max-width: 72ch;
       }
 
@@ -147,6 +156,8 @@
           border-color 120ms ease;
         cursor: pointer;
         user-select: none;
+        font-size: 15px;
+        line-height: 1;
       }
       .btn:hover {
         transform: translateY(-1px);
@@ -186,13 +197,14 @@
       }
 
       .sectionTitle {
-        margin: 22px 4px 10px;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.7);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+        margin: 26px 4px 12px;
 
-        /* ✅ NEW: center section headers */
+        /* ✅ NEW: bigger + nicer scale */
+        font-size: 15px;
+        font-weight: 650;
+        color: rgba(255, 255, 255, 0.78);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
         text-align: center;
       }
 
@@ -223,7 +235,7 @@
         box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
         overflow: hidden;
         transition: transform 140ms ease, border-color 140ms ease,
-          background 140ms ease;
+          background 140ms ease, box-shadow 140ms ease;
         display: grid;
         grid-template-columns: 110px 1fr;
         gap: 14px;
@@ -231,14 +243,17 @@
         align-items: center;
         min-height: 132px;
       }
+
+      /* ✅ UPDATED: hover outline becomes red */
       .card:hover {
         transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.22);
+        border-color: var(--accent);
         background: linear-gradient(
           180deg,
           rgba(255, 255, 255, 0.09),
           rgba(255, 255, 255, 0.04)
         );
+        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.42);
       }
 
       .thumb {
@@ -271,15 +286,21 @@
 
       .title {
         margin: 0;
-        font-size: 16px;
-        letter-spacing: -0.01em;
+
+        /* ✅ NEW: clearer hierarchy */
+        font-size: 17px;
+        font-weight: 650;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
       }
 
       .meta {
-        margin-top: 6px;
+        margin-top: 7px;
         color: var(--muted);
-        font-size: 13px;
-        line-height: 1.4;
+
+        /* ✅ NEW: better type scale */
+        font-size: 14px;
+        line-height: 1.45;
       }
 
       footer {
@@ -309,7 +330,7 @@
 
         <div class="top-actions">
           <a
-            class="btn primary"
+            class="btn"
             href="https://discord.pizzadao.xyz"
             target="_blank"
             rel="noreferrer"
@@ -346,9 +367,7 @@
         <div class="sectionTitle">Get Deeper</div>
         <div class="grid" id="get-deeper"></div>
 
-        <footer>
-          Built with 🍕 and ❤️
-        </footer>
+        <footer>Built with 🍕 and ❤️</footer>
       </main>
     </div>
 
