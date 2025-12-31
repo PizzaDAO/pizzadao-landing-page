@@ -296,7 +296,6 @@
   <body>
     <div class="wrap">
       <header>
-        <!-- Updated to use the provided logo URL -->
         <img class="logo" src="https://i.imgur.com/lG3rEc5.png" alt="PizzaDAO" />
 
         <h1>Get Started</h1>
@@ -319,7 +318,11 @@
             rel="noreferrer"
             >🍕 Mint a Rare Pizza</a
           >
-          <a class="btn" href="https://x.com/pizza_dao" target="_blank" rel="noreferrer"
+          <a
+            class="btn"
+            href="https://x.com/pizza_dao"
+            target="_blank"
+            rel="noreferrer"
             >🐦 Follow on X</a
           >
         </div>
@@ -327,9 +330,17 @@
 
       <main>
         <div class="sectionTitle">Start Here</div>
-        <div class="grid" id="grid"></div>
+        <div class="grid" id="start-here"></div>
 
-        <footer>Want to add more? Edit the <code>CARDS</code> array in this file.</footer>
+        <div class="sectionTitle">Games</div>
+        <div class="grid" id="games"></div>
+
+        <div class="sectionTitle">Participate</div>
+        <div class="grid" id="participate"></div>
+
+        <footer>
+          Want to add more? Edit the <code>CARDS</code> arrays in this file.
+        </footer>
       </main>
     </div>
 
@@ -345,7 +356,7 @@
         JOIN_PIZZADAO: "https://i.imgur.com/6iqZx8k.png",
       };
 
-      const CARDS = [
+      const START_HERE = [
         {
           name: "Join the Discord",
           url: "https://discord.pizzadao.xyz",
@@ -357,16 +368,19 @@
           name: "Join PizzaDAO",
           url: "https://discord.pizzadao.xyz",
           description: "What's your favorite pizza topping + mafia movie?",
-          icon: "💬",
+          icon: "🍕",
           thumbnail: THUMBS.JOIN_PIZZADAO,
         },
         {
           name: "Global Pizza Party Map",
           url: "https://map.pizzadao.xyz",
           description: "See all the cities we host the Global Pizza Party in.",
-          icon: "🍕",
+          icon: "🗺️",
           thumbnail: DEFAULT_THUMBNAIL,
         },
+      ];
+
+      const GAMES = [
         {
           name: "Pizza Chef",
           url: "https://pizzachef.bolt.host",
@@ -384,10 +398,14 @@
         {
           name: "Bitcoin Pizza Blastoff",
           url: "https://c-r-x-s-s.github.io/Bitcoin-Pizza-Blastoff/",
-          description: "Retro blastoff vibes — dodge, boost, and send the slice.",
+          description:
+            "Retro blastoff vibes — dodge, boost, and send the slice.",
           icon: "🚀",
           thumbnail: THUMBS.BITCOIN_BLASTOFF,
         },
+      ];
+
+      const PARTICIPATE = [
         {
           name: "Mint a Rare Pizza",
           url: "https://rarepizzas.com/mint",
@@ -399,26 +417,24 @@
           name: "Submit a Proposal",
           url: "https://propose.pizzadao.xyz",
           description: "Need pizza for an event?",
-          icon: "🍕",
+          icon: "📝",
           thumbnail: THUMBS.SUBMIT_PROPOSAL,
         },
         {
           name: "Join a Crew Call",
           url: "https://calendar.pizzadao.xyz",
           description: "Come see what we're working on!",
-          icon: "🍕",
+          icon: "📅",
           thumbnail: DEFAULT_THUMBNAIL,
         },
         {
           name: "Claim PizzaDAO ENS",
           url: "https://pizzadao.namespace.ninja/",
-          description: "Claimable by Rare Pizzas NFT Holders.",
+          description: "Claimable by Rare Pizzas NFT holders.",
           icon: "🚀",
           thumbnail: DEFAULT_THUMBNAIL,
         },
       ];
-
-      const grid = document.getElementById("grid");
 
       function cardHTML(c) {
         const thumb = c.thumbnail || DEFAULT_THUMBNAIL;
@@ -440,7 +456,15 @@
         `;
       }
 
-      grid.innerHTML = CARDS.map(cardHTML).join("");
+      function renderSection(id, cards) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = cards.map(cardHTML).join("");
+      }
+
+      renderSection("start-here", START_HERE);
+      renderSection("games", GAMES);
+      renderSection("participate", PARTICIPATE);
     </script>
   </body>
 </html>
