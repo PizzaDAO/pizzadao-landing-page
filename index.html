@@ -161,7 +161,7 @@
           rgba(57, 217, 138, 0.1)
         );
       }
-       .btn.secondary {
+      .btn.secondary {
         border-color: rgba(57, 217, 138, 0.4);
         background: linear-gradient(
           180deg,
@@ -169,7 +169,7 @@
           rgba(57, 217, 138, 0.1)
         );
       }
-       .btn.tertiary {
+      .btn.tertiary {
         border-color: rgba(57, 217, 138, 0.4);
         background: linear-gradient(
           180deg,
@@ -191,6 +191,9 @@
         color: rgba(255, 255, 255, 0.7);
         letter-spacing: 0.08em;
         text-transform: uppercase;
+
+        /* ✅ NEW: center section headers */
+        text-align: center;
       }
 
       .grid {
@@ -335,9 +338,13 @@
 
         <div class="sectionTitle">Participate</div>
         <div class="grid" id="participate"></div>
-        
+
         <div class="sectionTitle">Games</div>
         <div class="grid" id="games"></div>
+
+        <!-- ✅ NEW: Get Deeper section (last) -->
+        <div class="sectionTitle">Get Deeper</div>
+        <div class="grid" id="get-deeper"></div>
 
         <footer>
           Built with 🍕 and ❤️
@@ -412,6 +419,7 @@
         },
       ];
 
+      // ✅ PARTICIPATE now excludes the 3 "Get Deeper" items
       const PARTICIPATE = [
         {
           name: "Community Call",
@@ -419,20 +427,6 @@
           description: "Every Sunday on our Discord at 1pm ET.",
           icon: "📅",
           thumbnail: THUMBS.COMMUNITY_CALL,
-        },
-        {
-          name: "Mint a Rare Pizza",
-          url: "https://rarepizzas.com/mint",
-          description: "Claim a slice of onchain pizza history.",
-          icon: "🍕",
-          thumbnail: THUMBS.RARE_PIZZAS,
-        },
-        {
-          name: "Submit a Proposal",
-          url: "https://propose.pizzadao.xyz",
-          description: "Need pizza for an event?",
-          icon: "📝",
-          thumbnail: THUMBS.SUBMIT_PROPOSAL,
         },
         {
           name: "Join a Crew Call",
@@ -448,6 +442,24 @@
           icon: "🔧",
           thumbnail: THUMBS.GITHUB,
         },
+      ];
+
+      // ✅ NEW: Get Deeper section cards
+      const GET_DEEPER = [
+        {
+          name: "Mint a Rare Pizza",
+          url: "https://rarepizzas.com/mint",
+          description: "Claim a slice of onchain pizza history.",
+          icon: "🍕",
+          thumbnail: THUMBS.RARE_PIZZAS,
+        },
+        {
+          name: "Submit a Proposal",
+          url: "https://propose.pizzadao.xyz",
+          description: "Need pizza for an event?",
+          icon: "📝",
+          thumbnail: THUMBS.SUBMIT_PROPOSAL,
+        },
         {
           name: "Claim PizzaDAO ENS",
           url: "https://pizzadao.namespace.ninja/",
@@ -455,7 +467,6 @@
           icon: "🚀",
           thumbnail: THUMBS.ENS,
         },
-        
       ];
 
       function cardHTML(c) {
@@ -487,6 +498,7 @@
       renderSection("start-here", START_HERE);
       renderSection("participate", PARTICIPATE);
       renderSection("games", GAMES);
+      renderSection("get-deeper", GET_DEEPER);
     </script>
   </body>
 </html>
