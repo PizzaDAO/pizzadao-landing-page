@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>PizzaDAO — Get Started</title>
+    <title>PizzaDAO — Welcome</title>
     <meta
       name="description"
       content="Get started with PizzaDAO: join the Discord, mint a Rare Pizza, and play PizzaDAO games."
@@ -176,6 +176,22 @@
           rgba(57, 217, 138, 0.1)
         );
       }
+       .btn.secondary {
+        border-color: rgba(57, 217, 138, 0.4);
+        background: linear-gradient(
+          180deg,
+          rgba(57, 217, 138, 0.22),
+          rgba(57, 217, 138, 0.1)
+        );
+      }
+       .btn.tertiary {
+        border-color: rgba(57, 217, 138, 0.4);
+        background: linear-gradient(
+          180deg,
+          rgba(57, 217, 138, 0.22),
+          rgba(57, 217, 138, 0.1)
+        );
+      }
       .btn.primary:hover {
         border-color: rgba(57, 217, 138, 0.65);
       }
@@ -298,9 +314,9 @@
       <header>
         <img class="logo" src="https://i.imgur.com/lG3rEc5.png" alt="PizzaDAO" />
 
-        <h1>Get Started</h1>
+        <h1>Welcome!</h1>
         <p class="sub">
-          Join the community, mint a Rare Pizza, and jump into PizzaDAO games.
+          Join the community, mint a Rare Pizza, and play PizzaDAO games.
         </p>
 
         <div class="top-actions">
@@ -323,7 +339,7 @@
             href="https://x.com/pizza_dao"
             target="_blank"
             rel="noreferrer"
-            >🐦 Follow on X</a
+            >𝕏 Follow on X</a
           >
         </div>
       </header>
@@ -332,14 +348,14 @@
         <div class="sectionTitle">Start Here</div>
         <div class="grid" id="start-here"></div>
 
+        <div class="sectionTitle">Participate</div>
+        <div class="grid" id="participate"></div>
+        
         <div class="sectionTitle">Games</div>
         <div class="grid" id="games"></div>
 
-        <div class="sectionTitle">Participate</div>
-        <div class="grid" id="participate"></div>
-
         <footer>
-          Want to add more? Edit the <code>CARDS</code> arrays in this file.
+          Built with 🍕 and ❤️
         </footer>
       </main>
     </div>
@@ -351,16 +367,22 @@
       const THUMBS = {
         MOLTO_BENNY_ROUTE: "https://i.imgur.com/IgA9cLe.jpeg",
         PIZZA_CHEF: "https://i.imgur.com/KWvJgKJ.jpeg",
-        BITCOIN_BLASTOFF: "https://i.imgur.com/1VS8NvO.png",
-        SUBMIT_PROPOSAL: "https://i.imgur.com/dCBTJHx.png",
+        BITCOIN_BLASTOFF: "https://i.imgur.com/W83Kjtk.png",
+        SUBMIT_PROPOSAL: "https://i.imgur.com/r8Pv961.png",
         JOIN_PIZZADAO: "https://i.imgur.com/6iqZx8k.png",
+        RARE_PIZZAS: "https://i.imgur.com/VCiVocW.png",
+        CREW_CALLS: "https://i.imgur.com/3ViTCEj.png",
+        PIZZA_MAP: "https://i.imgur.com/mg2Gyg9.png",
+        GITHUB: "https://i.imgur.com/Ih3iI8s.png",
+        ENS: "https://i.imgur.com/P9eBBNo.png",
+        COMMUNITY_CALL: "https://i.imgur.com/6ZWs1Su.png",
       };
 
       const START_HERE = [
         {
           name: "Join the Discord",
           url: "https://discord.pizzadao.xyz",
-          description: "Meet the crew, find events, and get plugged in.",
+          description: "Meet the community, find events, and get plugged in.",
           icon: "💬",
           thumbnail: DEFAULT_THUMBNAIL,
         },
@@ -376,7 +398,7 @@
           url: "https://map.pizzadao.xyz",
           description: "See all the cities we host the Global Pizza Party in.",
           icon: "🗺️",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: THUMBS.PIZZA_MAP,
         },
       ];
 
@@ -391,7 +413,7 @@
         {
           name: "Molto Benny's Delivery Route",
           url: "https://pizzadao.github.io/moltobennydelivery/",
-          description: "Plan the route. Deliver the pies. Speedrun the city.",
+          description: "Plan the route. Deliver the pies. Speedrun the planet.",
           icon: "🛵",
           thumbnail: THUMBS.MOLTO_BENNY_ROUTE,
         },
@@ -407,11 +429,18 @@
 
       const PARTICIPATE = [
         {
+          name: "Community Call",
+          url: "https://discord.pizzadao.xyz",
+          description: "Every Sunday on our Discord at 1pm ET.",
+          icon: "📅",
+          thumbnail: THUMBS.COMMUNITY_CALL,
+        },
+        {
           name: "Mint a Rare Pizza",
           url: "https://rarepizzas.com/mint",
           description: "Claim a slice of onchain pizza history.",
           icon: "🍕",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: THUMBS.RARE_PIZZAS,
         },
         {
           name: "Submit a Proposal",
@@ -423,17 +452,25 @@
         {
           name: "Join a Crew Call",
           url: "https://calendar.pizzadao.xyz",
-          description: "Come see what we're working on!",
+          description: "Come see what we're working on during the week!",
           icon: "📅",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: THUMBS.CREW_CALLS,
+        },
+        {
+          name: "Contribute on Github",
+          url: "https://github.com/pizzadao",
+          description: "We have a bunch of code we're working on. Check it out!",
+          icon: "🔧",
+          thumbnail: THUMBS.GITHUB,
         },
         {
           name: "Claim PizzaDAO ENS",
           url: "https://pizzadao.namespace.ninja/",
           description: "Claimable by Rare Pizzas NFT holders.",
           icon: "🚀",
-          thumbnail: DEFAULT_THUMBNAIL,
+          thumbnail: THUMBS.ENS,
         },
+        
       ];
 
       function cardHTML(c) {
@@ -463,8 +500,8 @@
       }
 
       renderSection("start-here", START_HERE);
-      renderSection("games", GAMES);
       renderSection("participate", PARTICIPATE);
+      renderSection("games", GAMES);
     </script>
   </body>
 </html>
