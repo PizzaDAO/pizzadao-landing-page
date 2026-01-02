@@ -315,6 +315,42 @@
           "Liberation Mono", "Courier New", monospace;
         font-size: 0.95em;
       }
+
+      /* --- ✅ NEW: GitHub corner link --- */
+      .github-link {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        z-index: 1000;
+
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        backdrop-filter: blur(6px);
+
+        transition: transform 120ms ease, border-color 120ms ease,
+          background 120ms ease;
+      }
+
+      .github-link:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .github-link svg {
+        width: 22px;
+        height: 22px;
+        fill: white;
+        opacity: 0.92;
+      }
     </style>
   </head>
 
@@ -366,10 +402,28 @@
         <!-- ✅ NEW: Get Deeper section (last) -->
         <div class="sectionTitle">Get Deeper</div>
         <div class="grid" id="get-deeper"></div>
+        
+        <div class="sectionTitle">Enter the Metaverse</div>
+        <div class="grid" id="metaverse"></div>
 
         <footer>Built with 🍕 and ❤️</footer>
       </main>
     </div>
+
+    <!-- ✅ NEW: Bottom-right GitHub link -->
+    <a
+      class="github-link"
+      href="https://github.com/PizzaDAO/pizzadao-landing-page"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="PizzaDAO Landing Page on GitHub"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 .5C5.73.5.5 5.74.5 12.2c0 5.17 3.44 9.56 8.21 11.1.6.11.82-.27.82-.59v-2.2c-3.34.75-4.04-1.65-4.04-1.65-.55-1.44-1.34-1.82-1.34-1.82-1.1-.78.08-.77.08-.77 1.22.09 1.86 1.28 1.86 1.28 1.08 1.92 2.83 1.37 3.52 1.05.11-.8.42-1.37.76-1.69-2.66-.31-5.46-1.37-5.46-6.09 0-1.35.46-2.45 1.23-3.32-.12-.31-.53-1.56.12-3.25 0 0 1-.33 3.3 1.27a11.1 11.1 0 0 1 6 0c2.3-1.6 3.3-1.27 3.3-1.27.65 1.69.24 2.94.12 3.25.77.87 1.23 1.97 1.23 3.32 0 4.73-2.8 5.78-5.47 6.08.43.38.81 1.12.81 2.26v3.35c0 .32.22.7.82.59 4.77-1.54 8.21-5.93 8.21-11.1C23.5 5.74 18.27.5 12 .5z"
+        />
+      </svg>
+    </a>
 
     <script>
       const DEFAULT_THUMBNAIL =
@@ -387,6 +441,9 @@
         GITHUB: "https://i.imgur.com/Ih3iI8s.png",
         ENS: "https://i.imgur.com/P9eBBNo.png",
         COMMUNITY_CALL: "https://i.imgur.com/6ZWs1Su.png",
+        VOXELS_PIZZERIA: "https://i.imgur.com/10Ek2Zj.jpeg",
+        VOXELS_GALLERY: "https://i.imgur.com/XsJyP6f.jpeg",
+        ONCYBER: "https://i.imgur.com/FvEVLkJ.jpeg",
       };
 
       const START_HERE = [
@@ -488,6 +545,30 @@
         },
       ];
 
+      // ✅ NEW: Metaverse section cards
+      const METAVERSE = [
+        {
+          name: "PizzaDAO's Birthday Gallery",
+          url: "http://oncyber.com/pizzadao",
+          description: "Explore the history of PizzaDAO.",
+          icon: "🏛️",
+          thumbnail: THUMBS.ONCYBER,
+        },
+        {
+          name: "Metaverse Pizzeria",
+          url: "https://www.cryptovoxels.com/play?coords=W@192W,251N",
+          description: "Hungry? Grab a slice at our first shop in the metaverse.",
+          icon: "🍕",
+          thumbnail: THUMBS.VOXELS_PIZZERIA,
+        },
+        {
+          name: "Art Gallery",
+          url: "https://www.cryptovoxels.com/play?coords=E@153W,346N",
+          description: "The finest works of pizza art, curated from all corners of the metaverse.",
+          icon: "🎨",
+          thumbnail: THUMBS.VOXELS_GALLERY,
+        },
+      ];
       function cardHTML(c) {
         const thumb = c.thumbnail || DEFAULT_THUMBNAIL;
 
@@ -518,6 +599,7 @@
       renderSection("participate", PARTICIPATE);
       renderSection("games", GAMES);
       renderSection("get-deeper", GET_DEEPER);
+      renderSection("metaverse", METAVERSE);
     </script>
   </body>
 </html>
