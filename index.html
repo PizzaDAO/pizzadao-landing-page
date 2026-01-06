@@ -317,6 +317,43 @@
       }
 
       /* --- ✅ NEW: GitHub corner link --- */
+      /* --- ✅ NEW: Sheets corner link (left of GitHub) --- */
+.sheets-link {
+  position: fixed;
+  bottom: 16px;
+  right: 68px; /* 16 + 44 + 8 gap => sits left of github */
+  z-index: 1000;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+
+  transition: transform 120ms ease, border-color 120ms ease,
+    background 120ms ease;
+}
+
+.sheets-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Use an IMG so we can pull from simpleicons */
+.sheets-link img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.92;
+  display: block;
+}
+
       .github-link {
         position: fixed;
         bottom: 16px;
@@ -409,6 +446,21 @@
         <footer>Built with 🍕 and ❤️</footer>
       </main>
     </div>
+    
+    <!-- ✅ NEW: Bottom-right Google Sheets link (left of GitHub) -->
+<a
+  class="sheets-link"
+  href="https://docs.google.com/spreadsheets/d/1_r-OKdLUcJWGN17a2H8FPi5zUq9yoNadJpGyVoFY5ro/edit?gid=0#gid=0"
+  target="_blank"
+  rel="noreferrer"
+  aria-label="Open Google Sheets"
+>
+  <img
+    src="https://cdn.simpleicons.org/googlesheets/ffffff"
+    alt="Google Sheets"
+  />
+</a>
+
 
     <!-- ✅ NEW: Bottom-right GitHub link -->
     <a
