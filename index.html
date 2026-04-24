@@ -388,6 +388,98 @@
         fill: white;
         opacity: 0.92;
       }
+
+      /* --- Modal styles --- */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(6px);
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+      .modal {
+        background: #16161d;
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius);
+        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6);
+        max-width: 780px;
+        width: 100%;
+        padding: 28px 24px 24px;
+        position: relative;
+      }
+      .modal-close {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        background: none;
+        border: none;
+        color: var(--muted);
+        font-size: 22px;
+        cursor: pointer;
+        padding: 4px 8px;
+        line-height: 1;
+      }
+      .modal-close:hover {
+        color: var(--text);
+      }
+      .modal-title {
+        margin: 0 0 18px;
+        font-size: 20px;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+        text-align: center;
+      }
+      .modal .grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+      @media (min-width: 600px) {
+        .modal .grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      /* Section action button (centered below section title) */
+      .section-btn-wrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 8px;
+      }
+      .section-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 14px;
+        border: 1px solid rgba(57, 217, 138, 0.4);
+        background: linear-gradient(
+          180deg,
+          rgba(57, 217, 138, 0.22),
+          rgba(57, 217, 138, 0.1)
+        );
+        color: var(--text);
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 120ms ease, background 120ms ease,
+          border-color 120ms ease;
+        text-decoration: none;
+      }
+      .section-btn:hover {
+        transform: translateY(-1px);
+        border-color: rgba(57, 217, 138, 0.65);
+        background: linear-gradient(
+          180deg,
+          rgba(57, 217, 138, 0.3),
+          rgba(57, 217, 138, 0.15)
+        );
+      }
     </style>
   </head>
 
@@ -437,23 +529,47 @@
         <div class="sectionTitle">Start Here</div>
         <div class="grid" id="start-here"></div>
 
-        <div class="sectionTitle">Participate</div>
-        <div class="grid" id="participate"></div>
+        <div class="sectionTitle">Get Involved</div>
+        <div class="section-btn-wrap">
+          <button class="section-btn" onclick="document.getElementById('modal-involve').classList.add('open')">🤝 Get Involved</button>
+        </div>
 
         <div class="sectionTitle">Games</div>
-        <div class="grid" id="games"></div>
+        <div class="section-btn-wrap">
+          <a class="section-btn" href="https://c-r-x-s-s.github.io/PizzaDAO-Arcade/" target="_blank" rel="noreferrer">🕹️ PizzaDAO Arcade</a>
+        </div>
 
         <!-- ✅ NEW: Get Deeper section (last) -->
         <div class="sectionTitle">Get Deeper</div>
         <div class="grid" id="get-deeper"></div>
-        
+
         <div class="sectionTitle">Enter the Metaverse</div>
-        <div class="grid" id="metaverse"></div>
+        <div class="section-btn-wrap">
+          <button class="section-btn" onclick="document.getElementById('modal-metaverse').classList.add('open')">🌐 Visit Us in the Metaverse</button>
+        </div>
 
         <footer>Built with 🍕 and ❤️</footer>
       </main>
     </div>
     
+    <!-- Modal: Get Involved -->
+    <div class="modal-overlay" id="modal-involve" onclick="if(event.target===this)this.classList.remove('open')">
+      <div class="modal">
+        <button class="modal-close" onclick="document.getElementById('modal-involve').classList.remove('open')">&times;</button>
+        <h3 class="modal-title">Get Involved</h3>
+        <div class="grid" id="modal-involve-grid"></div>
+      </div>
+    </div>
+
+    <!-- Modal: Metaverse -->
+    <div class="modal-overlay" id="modal-metaverse" onclick="if(event.target===this)this.classList.remove('open')">
+      <div class="modal">
+        <button class="modal-close" onclick="document.getElementById('modal-metaverse').classList.remove('open')">&times;</button>
+        <h3 class="modal-title">Enter the Metaverse</h3>
+        <div class="grid" id="modal-metaverse-grid"></div>
+      </div>
+    </div>
+
     <!-- ✅ NEW: Bottom-right Google Sheets link (left of GitHub) -->
 <a
   class="sheets-link"
@@ -554,8 +670,7 @@
         },
       ];
 
-      // ✅ PARTICIPATE now excludes the 3 "Get Deeper" items
-      const PARTICIPATE = [
+      const GET_INVOLVED = [
         {
           name: "Community Call",
           url: "https://discord.pizzadao.xyz",
@@ -571,9 +686,9 @@
           thumbnail: THUMBS.CREW_CALLS,
         },
         {
-          name: "Contribute on Github",
-          url: "https://github.com/pizzadao",
-          description: "We have a bunch of code we're working on. Check it out!",
+          name: "Contribute to Our Projects",
+          url: "https://pizzadao.org/tech/projects",
+          description: "See what we're building and jump in!",
           icon: "🔧",
           thumbnail: THUMBS.GITHUB,
         },
@@ -655,10 +770,9 @@
       }
 
       renderSection("start-here", START_HERE);
-      renderSection("participate", PARTICIPATE);
-      renderSection("games", GAMES);
       renderSection("get-deeper", GET_DEEPER);
-      renderSection("metaverse", METAVERSE);
+      renderSection("modal-involve-grid", GET_INVOLVED);
+      renderSection("modal-metaverse-grid", METAVERSE);
     </script>
   </body>
 </html>
