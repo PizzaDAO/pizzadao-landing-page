@@ -141,60 +141,34 @@
         max-width: 72ch;
       }
 
-      .top-actions {
+      /* Social icon links */
+      .socials {
         display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
+        gap: 14px;
+        margin-top: 6px;
         justify-content: center;
       }
-
-      .btn {
-        display: inline-flex;
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 10px 14px;
-        border-radius: 12px;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.14);
-        background: rgba(255, 255, 255, 0.06);
         transition: transform 120ms ease, background 120ms ease,
           border-color 120ms ease;
-        cursor: pointer;
-        user-select: none;
-        font-size: 15px;
-        line-height: 1;
       }
-      .btn:hover {
-        transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.09);
+      .social-icon svg {
+        width: 20px;
+        height: 20px;
+        opacity: 0.9;
+      }
+      .social-icon:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.14);
         border-color: var(--accent);
-      }
-      .btn.primary {
-        border-color: rgba(255, 225, 53, 0.4);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 225, 53, 0.22),
-          rgba(255, 225, 53, 0.1)
-        );
-      }
-      .btn.secondary {
-        border-color: rgba(232, 93, 93, 0.4);
-        background: linear-gradient(
-          180deg,
-          rgba(232, 93, 93, 0.22),
-          rgba(232, 93, 93, 0.1)
-        );
-      }
-      .btn.tertiary {
-        border-color: rgba(125, 211, 232, 0.4);
-        background: linear-gradient(
-          180deg,
-          rgba(125, 211, 232, 0.22),
-          rgba(125, 211, 232, 0.1)
-        );
-      }
-      .btn.primary:hover {
-        border-color: rgba(255, 225, 53, 0.65);
       }
 
       main {
@@ -437,36 +411,70 @@
         }
       }
 
+      /* Arcade modal: wider for iframe */
+      .modal-arcade {
+        max-width: 960px;
+      }
+
+      /* Go Deeper modal: center 2 cards */
+      #modal-deeper-grid {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      @media (min-width: 600px) {
+        #modal-deeper-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          max-width: 740px;
+        }
+      }
+
       .section-btn {
-        display: inline-flex;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 10px;
-        padding: 14px 28px;
+        justify-content: flex-end;
+        gap: 0;
+        padding: 0;
         border-radius: 14px;
         border: 1px solid rgba(255, 225, 53, 0.4);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 225, 53, 0.22),
-          rgba(255, 225, 53, 0.1)
-        );
+        overflow: hidden;
+        position: relative;
+        min-height: 140px;
         color: var(--pizza-yellow);
         font-size: 15px;
         font-weight: 800;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         cursor: pointer;
-        transition: transform 120ms ease, background 120ms ease,
-          border-color 120ms ease;
+        transition: transform 120ms ease, border-color 120ms ease,
+          box-shadow 120ms ease;
         text-decoration: none;
+        background: #000;
+      }
+      .section-btn .btn-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.4;
+        transition: opacity 200ms ease;
+      }
+      .section-btn .btn-label {
+        position: relative;
+        z-index: 1;
+        padding: 14px 16px;
+        width: 100%;
+        text-align: center;
+        background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
       }
       .section-btn:hover {
-        transform: translateY(-1px);
+        transform: translateY(-2px);
         border-color: rgba(255, 225, 53, 0.65);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 225, 53, 0.3),
-          rgba(255, 225, 53, 0.15)
-        );
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      }
+      .section-btn:hover .btn-img {
+        opacity: 0.55;
       }
 
       /* Button grid */
@@ -498,38 +506,57 @@
           Join the community, mint a Rare Pizza, and play PizzaDAO games.
         </p>
 
-        <div class="top-actions">
-          <a
-            class="btn"
-            href="https://discord.pizzadao.xyz"
-            target="_blank"
-            rel="noreferrer"
-            >💬 Join Discord</a
-          >
-          <a
-            class="btn"
-            href="https://x.com/pizza_dao"
-            target="_blank"
-            rel="noreferrer"
-            >𝕏 Follow on X</a
-          >
+        <div class="socials">
+          <a href="https://discord.pizzadao.xyz" target="_blank" rel="noreferrer" aria-label="Join Discord" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          </a>
+          <a href="https://x.com/pizza_dao" target="_blank" rel="noreferrer" aria-label="Follow on X" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
         </div>
       </header>
 
       <main>
         <div class="btn-row">
-          <button class="section-btn" onclick="document.getElementById('modal-start').classList.add('open')">🍕 Get Started</button>
-          <button class="section-btn" onclick="document.getElementById('modal-involve').classList.add('open')">🤝 Get Involved</button>
-          <a class="section-btn" href="https://c-r-x-s-s.github.io/PizzaDAO-Arcade/" target="_blank" rel="noreferrer">🕹️ PizzaDAO Arcade</a>
-          <button class="section-btn" onclick="document.getElementById('modal-metaverse').classList.add('open')">🌐 Visit the Metaverse</button>
-          <a class="section-btn" href="https://rarepizzas.com/mint" target="_blank" rel="noreferrer">🍕 Mint a Rare Pizza</a>
-          <button class="section-btn" onclick="document.getElementById('modal-deeper').classList.add('open')">🔥 Go Deeper</button>
+          <button class="section-btn" onclick="document.getElementById('modal-start').classList.add('open')">
+            <img class="btn-img" src="images/join-pizzadao.png" alt="" loading="lazy" />
+            <span class="btn-label">🍕 Get Started</span>
+          </button>
+          <button class="section-btn" onclick="document.getElementById('modal-involve').classList.add('open')">
+            <img class="btn-img" src="images/community-call.png" alt="" loading="lazy" />
+            <span class="btn-label">🤝 Get Involved</span>
+          </button>
+          <button class="section-btn" onclick="document.getElementById('arcade-iframe').src='https://c-r-x-s-s.github.io/PizzaDAO-Arcade/';document.getElementById('modal-arcade').classList.add('open')">
+            <img class="btn-img" src="images/bitcoin-blastoff.png" alt="" loading="lazy" />
+            <span class="btn-label">🕹️ PizzaDAO Arcade</span>
+          </button>
+          <button class="section-btn" onclick="document.getElementById('modal-metaverse').classList.add('open')">
+            <img class="btn-img" src="images/voxels-pizzeria.jpeg" alt="" loading="lazy" />
+            <span class="btn-label">🌐 Visit the Metaverse</span>
+          </button>
+          <a class="section-btn" href="https://rarepizzas.com/mint" target="_blank" rel="noreferrer">
+            <img class="btn-img" src="images/rare-pizzas.png" alt="" loading="lazy" />
+            <span class="btn-label">🍕 Mint a Rare Pizza</span>
+          </a>
+          <button class="section-btn" onclick="document.getElementById('modal-deeper').classList.add('open')">
+            <img class="btn-img" src="images/ens.png" alt="" loading="lazy" />
+            <span class="btn-label">🔥 Go Deeper</span>
+          </button>
         </div>
 
         <footer>Built with 🍕 and ❤️</footer>
       </main>
     </div>
     
+    <!-- Modal: PizzaDAO Arcade -->
+    <div class="modal-overlay" id="modal-arcade" onclick="if(event.target===this){this.classList.remove('open');this.querySelector('iframe').src='about:blank'}">
+      <div class="modal modal-arcade">
+        <button class="modal-close" onclick="var m=document.getElementById('modal-arcade');m.classList.remove('open');m.querySelector('iframe').src='about:blank'">&times;</button>
+        <h3 class="modal-title">PizzaDAO Arcade</h3>
+        <iframe id="arcade-iframe" src="about:blank" allow="autoplay" style="width:100%;height:70vh;border:none;border-radius:12px;background:#000"></iframe>
+      </div>
+    </div>
+
     <!-- Modal: Get Started -->
     <div class="modal-overlay" id="modal-start" onclick="if(event.target===this)this.classList.remove('open')">
       <div class="modal">
