@@ -543,7 +543,9 @@
 
       <main>
         <div class="sectionTitle">Get Started</div>
-        <div class="grid" id="start-here"></div>
+        <div class="section-btn-wrap">
+          <button class="section-btn" onclick="document.getElementById('modal-start').classList.add('open')">🍕 Get Started</button>
+        </div>
 
         <div class="sectionTitle">Get Involved</div>
         <div class="section-btn-wrap">
@@ -558,18 +560,38 @@
         </div>
 
         <div class="sectionTitle">Go Deeper</div>
-        <div class="grid grid-2col" id="get-deeper"></div>
+        <div class="section-btn-wrap">
+          <button class="section-btn" onclick="document.getElementById('modal-deeper').classList.add('open')">🔥 Go Deeper</button>
+        </div>
 
         <footer>Built with 🍕 and ❤️</footer>
       </main>
     </div>
     
+    <!-- Modal: Get Started -->
+    <div class="modal-overlay" id="modal-start" onclick="if(event.target===this)this.classList.remove('open')">
+      <div class="modal">
+        <button class="modal-close" onclick="document.getElementById('modal-start').classList.remove('open')">&times;</button>
+        <h3 class="modal-title">Get Started</h3>
+        <div class="grid" id="modal-start-grid"></div>
+      </div>
+    </div>
+
     <!-- Modal: Get Involved -->
     <div class="modal-overlay" id="modal-involve" onclick="if(event.target===this)this.classList.remove('open')">
       <div class="modal">
         <button class="modal-close" onclick="document.getElementById('modal-involve').classList.remove('open')">&times;</button>
         <h3 class="modal-title">Get Involved</h3>
         <div class="grid" id="modal-involve-grid"></div>
+      </div>
+    </div>
+
+    <!-- Modal: Go Deeper -->
+    <div class="modal-overlay" id="modal-deeper" onclick="if(event.target===this)this.classList.remove('open')">
+      <div class="modal">
+        <button class="modal-close" onclick="document.getElementById('modal-deeper').classList.remove('open')">&times;</button>
+        <h3 class="modal-title">Go Deeper</h3>
+        <div class="grid" id="modal-deeper-grid"></div>
       </div>
     </div>
 
@@ -772,8 +794,8 @@
         el.innerHTML = cards.map(cardHTML).join("");
       }
 
-      renderSection("start-here", START_HERE);
-      renderSection("get-deeper", GET_DEEPER);
+      renderSection("modal-start-grid", START_HERE);
+      renderSection("modal-deeper-grid", GET_DEEPER);
       renderSection("modal-involve-grid", GET_INVOLVED);
       renderSection("modal-metaverse-grid", METAVERSE);
     </script>
