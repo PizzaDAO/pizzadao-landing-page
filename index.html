@@ -482,6 +482,34 @@
           rgba(255, 225, 53, 0.15)
         );
       }
+
+      /* Explore section: 3 buttons in a row */
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+      }
+      .btn-row .section-btn {
+        flex: 1 1 auto;
+        min-width: 200px;
+        max-width: 320px;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* 2-column grid variant for Go Deeper */
+      .grid-2col {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+      @media (min-width: 700px) {
+        .grid-2col {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          max-width: 740px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
     </style>
   </head>
 
@@ -505,30 +533,16 @@
           >
           <a
             class="btn"
-            href="https://rarepizzas.com/mint"
-            target="_blank"
-            rel="noreferrer"
-            >🍕 Mint a Rare Pizza</a
-          >
-          <a
-            class="btn"
             href="https://x.com/pizza_dao"
             target="_blank"
             rel="noreferrer"
             >𝕏 Follow on X</a
           >
-          <a
-            class="btn"
-            href="https://rsv.pizza/gpp"
-            target="_blank"
-            rel="noreferrer"
-            >🍕 Plan a Party</a
-          >
         </div>
       </header>
 
       <main>
-        <div class="sectionTitle">Start Here</div>
+        <div class="sectionTitle">Get Started</div>
         <div class="grid" id="start-here"></div>
 
         <div class="sectionTitle">Get Involved</div>
@@ -536,19 +550,15 @@
           <button class="section-btn" onclick="document.getElementById('modal-involve').classList.add('open')">🤝 Get Involved</button>
         </div>
 
-        <div class="sectionTitle">Games</div>
-        <div class="section-btn-wrap">
+        <div class="sectionTitle">Explore</div>
+        <div class="btn-row">
           <a class="section-btn" href="https://c-r-x-s-s.github.io/PizzaDAO-Arcade/" target="_blank" rel="noreferrer">🕹️ PizzaDAO Arcade</a>
+          <button class="section-btn" onclick="document.getElementById('modal-metaverse').classList.add('open')">🌐 Visit the Metaverse</button>
+          <a class="section-btn" href="https://rarepizzas.com/mint" target="_blank" rel="noreferrer">🍕 Mint a Rare Pizza</a>
         </div>
 
-        <!-- ✅ NEW: Get Deeper section (last) -->
-        <div class="sectionTitle">Get Deeper</div>
-        <div class="grid" id="get-deeper"></div>
-
-        <div class="sectionTitle">Enter the Metaverse</div>
-        <div class="section-btn-wrap">
-          <button class="section-btn" onclick="document.getElementById('modal-metaverse').classList.add('open')">🌐 Visit Us in the Metaverse</button>
-        </div>
+        <div class="sectionTitle">Go Deeper</div>
+        <div class="grid grid-2col" id="get-deeper"></div>
 
         <footer>Built with 🍕 and ❤️</footer>
       </main>
@@ -638,6 +648,12 @@
           icon: "🗺️",
           thumbnail: THUMBS.PIZZA_MAP,
         },
+        {
+          name: "Plan a Pizza Party",
+          url: "https://rsv.pizza/gpp",
+          description: "Host a Global Pizza Party in your city!",
+          icon: "🎉",
+        },
       ];
 
       const GAMES = [
@@ -689,15 +705,7 @@
         },
       ];
 
-      // ✅ NEW: Get Deeper section cards
       const GET_DEEPER = [
-        {
-          name: "Mint a Rare Pizza",
-          url: "https://rarepizzas.com/mint",
-          description: "Claim a slice of onchain pizza history.",
-          icon: "🍕",
-          thumbnail: THUMBS.RARE_PIZZAS,
-        },
         {
           name: "Submit a Proposal",
           url: "https://propose.pizzadao.xyz",
