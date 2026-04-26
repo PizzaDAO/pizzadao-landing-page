@@ -76,11 +76,11 @@
         display: grid;
         gap: 14px;
         padding: 26px 22px;
-        border: 1px solid var(--stroke);
+        border: 1px solid rgba(232, 93, 93, 0.3);
         background: linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.07),
-          rgba(255, 255, 255, 0.03)
+          rgba(232, 93, 93, 0.35),
+          rgba(232, 93, 93, 0.15)
         );
         border-radius: var(--radius);
         box-shadow: var(--shadow);
@@ -579,14 +579,6 @@
             <img class="btn-img" src="images/join-pizzadao.png" alt="" loading="lazy" />
             <span class="btn-label">🍕 Get Started</span>
           </button>
-          <button class="section-btn" onclick="document.getElementById('modal-involve').classList.add('open')">
-            <img class="btn-img" src="images/community-call.png" alt="" loading="lazy" />
-            <span class="btn-label">🤝 Get Involved</span>
-          </button>
-          <button class="section-btn" onclick="document.getElementById('modal-deeper').classList.add('open')">
-            <img class="btn-img" src="images/ens.png" alt="" loading="lazy" />
-            <span class="btn-label">🔥 Go Deeper</span>
-          </button>
           <a class="section-btn" href="https://rarepizzas.com/mint" target="_blank" rel="noreferrer">
             <img class="btn-img" src="images/rare-pizzas.png" alt="" loading="lazy" />
             <span class="btn-label">🍕 Mint a Rare Pizza</span>
@@ -594,6 +586,14 @@
           <button class="section-btn" onclick="document.getElementById('arcade-iframe').src='https://c-r-x-s-s.github.io/PizzaDAO-Arcade/';document.getElementById('modal-arcade').classList.add('open')">
             <img class="btn-img" src="images/bitcoin-blastoff.png" alt="" loading="lazy" />
             <span class="btn-label">🕹️ PizzaDAO Arcade</span>
+          </button>
+          <button class="section-btn" onclick="document.getElementById('modal-involve').classList.add('open')">
+            <img class="btn-img" src="images/community-call.png" alt="" loading="lazy" />
+            <span class="btn-label">🤝 Get Involved</span>
+          </button>
+          <button class="section-btn" onclick="document.getElementById('modal-deeper').classList.add('open')">
+            <img class="btn-img" src="images/ens.png" alt="" loading="lazy" />
+            <span class="btn-label">🔥 Go Deeper</span>
           </button>
           <button class="section-btn" onclick="document.getElementById('modal-metaverse').classList.add('open')">
             <img class="btn-img" src="images/voxels-pizzeria.jpeg" alt="" loading="lazy" />
