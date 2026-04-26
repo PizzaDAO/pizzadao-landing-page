@@ -360,8 +360,8 @@
         position: fixed;
         inset: 0;
         z-index: 2000;
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(6px);
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(10px);
         justify-content: center;
         align-items: center;
         padding: 24px;
@@ -370,37 +370,94 @@
         display: flex;
       }
       .modal {
-        background: #16161d;
-        border: 1px solid var(--stroke);
+        background: linear-gradient(180deg, #1a1a24 0%, #111118 100%);
+        border: 1px solid rgba(255, 225, 53, 0.2);
         border-radius: var(--radius);
-        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6);
+        box-shadow:
+          0 30px 100px rgba(0, 0, 0, 0.7),
+          0 0 60px rgba(255, 225, 53, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
         max-width: 780px;
         width: 100%;
-        padding: 28px 24px 24px;
+        padding: 32px 28px 28px;
         position: relative;
       }
       .modal-close {
         position: absolute;
-        top: 12px;
-        right: 14px;
-        background: none;
-        border: none;
+        top: 10px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
         color: var(--muted);
-        font-size: 22px;
+        font-size: 18px;
         cursor: pointer;
-        padding: 4px 8px;
+        padding: 0;
         line-height: 1;
+        transition: background 120ms ease, color 120ms ease;
       }
       .modal-close:hover {
         color: var(--text);
+        background: rgba(255, 255, 255, 0.12);
       }
       .modal-title {
-        margin: 0 0 18px;
-        font-size: 20px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
+        margin: 0 0 22px;
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
         text-align: center;
         color: var(--pizza-yellow);
+      }
+      .modal-title::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 3px;
+        background: var(--pizza-red);
+        border-radius: 2px;
+        margin: 10px auto 0;
+      }
+
+      /* Modal cards: vertical layout */
+      .modal .card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        text-align: center;
+        padding: 0;
+        min-height: auto;
+        border-color: rgba(255, 255, 255, 0.08);
+        background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+      }
+      .modal .card:hover {
+        border-color: var(--pizza-red);
+        background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+      }
+      .modal .thumb {
+        width: 100%;
+        height: 140px;
+        border-radius: 16px 16px 0 0;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .modal .cardBody {
+        padding: 14px 16px 16px;
+      }
+      .modal .titleRow {
+        justify-content: center;
+      }
+      .modal .title {
+        font-size: 16px;
+        font-weight: 800;
+      }
+      .modal .meta {
+        font-size: 13px;
+        margin-top: 6px;
       }
       .modal .grid {
         grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -647,7 +704,7 @@
       const START_HERE = [
         {
           name: "Claim Your Pizza Mafia Name",
-          url: "https://pizzadao.xyz/join",
+          url: "https://pizzadao.org",
           description: "What's your favorite pizza topping + mafia movie?",
           icon: "🍕",
           thumbnail: THUMBS.JOIN_PIZZADAO,
