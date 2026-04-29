@@ -1,23 +1,22 @@
 /* PizzaDAO Landing Page — app.js */
 
-const DEFAULT_THUMBNAIL =
-  "https://pbs.twimg.com/profile_images/1960434112029745152/eiqMx2L2_400x400.jpg";
+const DEFAULT_THUMBNAIL = "images/logo.png";
 
 const THUMBS = {
-  MOLTO_BENNY_ROUTE: "images/molto-benny-route.jpeg",
-  PIZZA_CHEF: "images/pizza-chef.jpeg",
-  BITCOIN_BLASTOFF: "images/bitcoin-blastoff.png",
-  SUBMIT_PROPOSAL: "images/submit-proposal.png",
-  JOIN_PIZZADAO: "images/join-pizzadao.png",
-  RARE_PIZZAS: "images/rare-pizzas.png",
-  CREW_CALLS: "images/crew-calls.png",
-  PIZZA_MAP: "images/pizza-map.png",
-  GITHUB: "images/github.png",
-  ENS: "images/ens.png",
-  COMMUNITY_CALL: "images/community-call.png",
-  VOXELS_PIZZERIA: "images/voxels-pizzeria.jpeg",
-  VOXELS_GALLERY: "images/voxels-gallery.jpeg",
-  ONCYBER: "images/oncyber.jpeg",
+  MOLTO_BENNY_ROUTE: "images/webp/molto-benny-route.webp",
+  PIZZA_CHEF: "images/webp/pizza-chef.webp",
+  BITCOIN_BLASTOFF: "images/webp/bitcoin-blastoff.webp",
+  SUBMIT_PROPOSAL: "images/webp/submit-proposal.webp",
+  JOIN_PIZZADAO: "images/webp/join-pizzadao.webp",
+  RARE_PIZZAS: "images/webp/rare-pizzas.webp",
+  CREW_CALLS: "images/webp/crew-calls.webp",
+  PIZZA_MAP: "images/webp/pizza-map.webp",
+  GITHUB: "images/webp/github.webp",
+  ENS: "images/webp/ens.webp",
+  COMMUNITY_CALL: "images/webp/community-call.webp",
+  VOXELS_PIZZERIA: "images/webp/voxels-pizzeria.webp",
+  VOXELS_GALLERY: "images/webp/voxels-gallery.webp",
+  ONCYBER: "images/webp/oncyber.webp",
 };
 
 const START_HERE = [
@@ -112,7 +111,7 @@ const GET_DEEPER = [
 const METAVERSE = [
   {
     name: "Birthday Gallery",
-    url: "http://oncyber.com/pizzadao",
+    url: "https://oncyber.com/pizzadao",
     description:
       "Explore the history of PizzaDAO in this gallery we built for our 4th birthday.",
     icon: "\u{1F3DB}\uFE0F",
@@ -144,7 +143,7 @@ function cardHTML(c) {
       </div>
       <div class="cardBody">
         <div class="titleRow">
-          <h2 class="title">${c.icon ? `${c.icon} ` : ""}${c.name}</h2>
+          <h4 class="title">${c.icon ? `${c.icon} ` : ""}${c.name}</h4>
         </div>
         <div class="meta">${c.description || ""}</div>
       </div>
@@ -182,6 +181,7 @@ function openModal(modalId) {
   }
 
   overlay.classList.add("open");
+  document.body.classList.add("modal-open");
 
   // Focus the close button inside the modal
   const closeBtn = overlay.querySelector(".modal-close");
@@ -191,6 +191,7 @@ function openModal(modalId) {
 function closeModal(overlay) {
   if (!overlay) return;
   overlay.classList.remove("open");
+  document.body.classList.remove("modal-open");
 
   // Clear arcade iframe when closing
   const iframe = overlay.querySelector("iframe");

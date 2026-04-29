@@ -272,11 +272,11 @@ code {
   border-color: var(--accent);
   background: rgba(255, 255, 255, 0.1);
 }
-.sheets-link img {
+.sheets-link svg {
   width: 22px;
   height: 22px;
+  fill: white;
   opacity: 0.92;
-  display: block;
 }
 
 /* GitHub corner link */
@@ -309,9 +309,14 @@ code {
   opacity: 0.92;
 }
 
+/* Body scroll lock when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
 /* --- Modal styles --- */
 .modal-overlay {
-  display: none;
+  display: flex;
   position: fixed;
   inset: 0;
   z-index: 2000;
@@ -320,9 +325,21 @@ code {
   justify-content: center;
   align-items: center;
   padding: 24px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 200ms ease, visibility 0s 200ms;
 }
 .modal-overlay.open {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+.modal-overlay .modal {
+  transform: translateY(12px) scale(0.98);
+  transition: transform 200ms ease;
+}
+.modal-overlay.open .modal {
+  transform: translateY(0) scale(1);
 }
 .modal {
   background: linear-gradient(180deg, #1a1a24 0%, #111118 100%);
@@ -488,6 +505,9 @@ code {
 }
 .section-btn:hover .btn-img {
   opacity: 0.7;
+}
+.section-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* Accent border color variants */
